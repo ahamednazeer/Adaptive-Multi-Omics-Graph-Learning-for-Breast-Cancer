@@ -1,0 +1,261 @@
+{
+  "temporal": {
+    "genes": [],
+    "mapped_count": 0,
+    "unmapped_count": 20,
+    "unmapped_genes": [
+      "TYK2.Y1054.Y1055",
+      "ERBB2.Y877",
+      "Caspase.9..cleaved.D330",
+      "gcn_1",
+      "STAT3.Y705",
+      "JAK2.Y1007",
+      "KRT7",
+      "EGFR.Y1068",
+      "Cofilin.S3",
+      "X4EBP1.T70",
+      "MCM6",
+      "CDCA5",
+      "WDR83",
+      "gcn_19",
+      "gcn_194",
+      "gcn_28",
+      "NPY1R",
+      "KRT86",
+      "CREBBP",
+      "Cyclin.D1.total"
+    ],
+    "timepoints_analyzed": [
+      "T1",
+      "T2",
+      "T3",
+      "T4"
+    ]
+  },
+  "external_validation": {
+    "dataset": "GSE240671",
+    "n_samples": 95,
+    "n_positive": 37,
+    "n_negative": 58,
+    "n_features_used": 22,
+    "n_features_missing": 409,
+    "accuracy": 0.6105,
+    "f1": 0.0,
+    "roc_auc": 0.5825,
+    "roc_curve": [
+      {
+        "fpr": 0.0,
+        "tpr": 0.0
+      },
+      {
+        "fpr": 0.017241379310344827,
+        "tpr": 0.0
+      },
+      {
+        "fpr": 0.034482758620689655,
+        "tpr": 0.0
+      },
+      {
+        "fpr": 0.034482758620689655,
+        "tpr": 0.05405405405405406
+      },
+      {
+        "fpr": 0.05172413793103448,
+        "tpr": 0.05405405405405406
+      },
+      {
+        "fpr": 0.05172413793103448,
+        "tpr": 0.10810810810810811
+      },
+      {
+        "fpr": 0.1206896551724138,
+        "tpr": 0.10810810810810811
+      },
+      {
+        "fpr": 0.15517241379310345,
+        "tpr": 0.13513513513513514
+      },
+      {
+        "fpr": 0.15517241379310345,
+        "tpr": 0.16216216216216217
+      },
+      {
+        "fpr": 0.1724137931034483,
+        "tpr": 0.16216216216216217
+      },
+      {
+        "fpr": 0.1724137931034483,
+        "tpr": 0.24324324324324326
+      },
+      {
+        "fpr": 0.20689655172413793,
+        "tpr": 0.32432432432432434
+      },
+      {
+        "fpr": 0.22413793103448276,
+        "tpr": 0.3783783783783784
+      },
+      {
+        "fpr": 0.2413793103448276,
+        "tpr": 0.3783783783783784
+      },
+      {
+        "fpr": 0.3448275862068966,
+        "tpr": 0.40540540540540543
+      },
+      {
+        "fpr": 0.3620689655172414,
+        "tpr": 0.40540540540540543
+      },
+      {
+        "fpr": 0.6379310344827587,
+        "tpr": 0.7567567567567568
+      },
+      {
+        "fpr": 0.6551724137931034,
+        "tpr": 0.7567567567567568
+      },
+      {
+        "fpr": 0.6551724137931034,
+        "tpr": 0.8378378378378378
+      },
+      {
+        "fpr": 0.6896551724137931,
+        "tpr": 0.8378378378378378
+      },
+      {
+        "fpr": 0.6896551724137931,
+        "tpr": 0.8918918918918919
+      },
+      {
+        "fpr": 0.7241379310344828,
+        "tpr": 0.8918918918918919
+      },
+      {
+        "fpr": 0.8275862068965517,
+        "tpr": 0.972972972972973
+      },
+      {
+        "fpr": 0.8448275862068966,
+        "tpr": 0.972972972972973
+      },
+      {
+        "fpr": 0.9137931034482759,
+        "tpr": 0.972972972972973
+      },
+      {
+        "fpr": 1.0,
+        "tpr": 0.972972972972973
+      },
+      {
+        "fpr": 1.0,
+        "tpr": 1.0
+      }
+    ],
+    "molecular_subtypes": {
+      "Luminal B": 29,
+      "TNBC": 27,
+      "HER2+_HR+": 19,
+      "HER2+": 15,
+      "Luminal A": 5
+    }
+  },
+  "resistance_analysis": {
+    "genes": [
+      {
+        "gene": "NPY1R",
+        "pre_mean": 431.9474,
+        "post_mean": 263.2222,
+        "fold_change": -168.7251,
+        "direction": "down",
+        "pre_pcr_mean": 164.1892,
+        "pre_npcr_mean": 602.7586,
+        "pcr_vs_npcr_diff": -438.5694,
+        "resistance_associated": false
+      },
+      {
+        "gene": "KRT7",
+        "pre_mean": 754.2737,
+        "post_mean": 877.0741,
+        "fold_change": 122.8004,
+        "direction": "up",
+        "pre_pcr_mean": 818.3243,
+        "pre_npcr_mean": 713.4138,
+        "pcr_vs_npcr_diff": 104.9105,
+        "resistance_associated": false
+      },
+      {
+        "gene": "CREBBP",
+        "pre_mean": 1265.0526,
+        "post_mean": 1190.8148,
+        "fold_change": -74.2378,
+        "direction": "down",
+        "pre_pcr_mean": 1103.8919,
+        "pre_npcr_mean": 1367.8621,
+        "pcr_vs_npcr_diff": -263.9702,
+        "resistance_associated": false
+      },
+      {
+        "gene": "CDCA5",
+        "pre_mean": 111.7368,
+        "post_mean": 74.7407,
+        "fold_change": -36.9961,
+        "direction": "down",
+        "pre_pcr_mean": 137.7027,
+        "pre_npcr_mean": 95.1724,
+        "pcr_vs_npcr_diff": 42.5303,
+        "resistance_associated": false
+      },
+      {
+        "gene": "KRT86",
+        "pre_mean": 24.5263,
+        "post_mean": 11.9259,
+        "fold_change": -12.6004,
+        "direction": "down",
+        "pre_pcr_mean": 13.5946,
+        "pre_npcr_mean": 31.5,
+        "pcr_vs_npcr_diff": -17.9054,
+        "resistance_associated": false
+      },
+      {
+        "gene": "WDR83",
+        "pre_mean": 25.1789,
+        "post_mean": 32.0,
+        "fold_change": 6.8211,
+        "direction": "up",
+        "pre_pcr_mean": 27.7568,
+        "pre_npcr_mean": 23.5345,
+        "pcr_vs_npcr_diff": 4.2223,
+        "resistance_associated": false
+      },
+      {
+        "gene": "MCM6",
+        "pre_mean": 171.2421,
+        "post_mean": 170.4444,
+        "fold_change": -0.7977,
+        "direction": "down",
+        "pre_pcr_mean": 187.4054,
+        "pre_npcr_mean": 160.931,
+        "pcr_vs_npcr_diff": 26.4744,
+        "resistance_associated": false
+      }
+    ],
+    "total_analyzed": 7,
+    "unmapped": [
+      "TYK2.Y1054.Y1055",
+      "ERBB2.Y877",
+      "Caspase.9..cleaved.D330",
+      "gcn_1",
+      "STAT3.Y705",
+      "JAK2.Y1007",
+      "EGFR.Y1068",
+      "Cofilin.S3",
+      "X4EBP1.T70",
+      "gcn_19",
+      "gcn_194",
+      "gcn_28",
+      "Cyclin.D1.total"
+    ],
+    "resistance_genes": []
+  }
+}

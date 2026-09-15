@@ -1,0 +1,31 @@
+# Version control
+.git
+.gitignore
+
+# Python cache & virtual environments
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+breast_cancer_ai/frontend/node_modules/
+breast_cancer_ai/frontend/.next/
+frontend-ref/
+
+# Temporary files & IDE
+.vscode/
+.idea/
+.gemini/
+*.tmp
+*.bak
+*.log

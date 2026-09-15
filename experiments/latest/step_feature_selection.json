@@ -1,0 +1,39 @@
+{
+  "rna_lasso_selected": 395,
+  "rna_boruta_final": 23,
+  "protein_selected": 139,
+  "top_rna_genes": [
+    "ABAT",
+    "C1orf64",
+    "CCDC130",
+    "CDCA5",
+    "COL4A4",
+    "CREBBP",
+    "CTSF",
+    "DKK1",
+    "KCTD6",
+    "KRT7",
+    "KRT86",
+    "LRRC73",
+    "MCM6",
+    "MYRIP",
+    "NPY1R",
+    "P2RY6",
+    "PSMD3",
+    "REEP2",
+    "SERPINA3",
+    "SPR"
+  ],
+  "top_proteins": [
+    "A.RAF.S299",
+    "AKT.S473",
+    "AKT.T308",
+    "ALK.Y1586",
+    "ALK.Y1604",
+    "ALK.total",
+    "AMPKa1.S485",
+    "AMPKb1.S108",
+    "ATM.S1981",
+    "ATR.S428"
+  ]
+}

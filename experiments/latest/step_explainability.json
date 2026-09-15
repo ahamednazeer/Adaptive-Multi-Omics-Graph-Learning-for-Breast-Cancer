@@ -1,0 +1,127 @@
+{
+  "top_positive_biomarkers": [
+    {
+      "name": "TYK2.Y1054.Y1055",
+      "mean_abs_shap": 0.16625924408435822,
+      "mean_shap": 0.005709351506084204,
+      "type": "positive"
+    },
+    {
+      "name": "ERBB2.Y877",
+      "mean_abs_shap": 0.09517358243465424,
+      "mean_shap": 0.011668276973068714,
+      "type": "positive"
+    },
+    {
+      "name": "Caspase.9..cleaved.D330",
+      "mean_abs_shap": 0.0437728576362133,
+      "mean_shap": 0.006748109590262175,
+      "type": "positive"
+    },
+    {
+      "name": "gcn_1",
+      "mean_abs_shap": 0.043349217623472214,
+      "mean_shap": 0.00022416799038182944,
+      "type": "positive"
+    },
+    {
+      "name": "STAT3.Y705",
+      "mean_abs_shap": 0.040915366262197495,
+      "mean_shap": 0.011663655750453472,
+      "type": "positive"
+    },
+    {
+      "name": "JAK2.Y1007",
+      "mean_abs_shap": 0.03437343239784241,
+      "mean_shap": 0.00596691993996501,
+      "type": "positive"
+    },
+    {
+      "name": "KRT7",
+      "mean_abs_shap": 0.028762895613908768,
+      "mean_shap": 0.00010179768287343904,
+      "type": "positive"
+    },
+    {
+      "name": "EGFR.Y1068",
+      "mean_abs_shap": 0.02213219180703163,
+      "mean_shap": 0.003906778525561094,
+      "type": "positive"
+    },
+    {
+      "name": "Cofilin.S3",
+      "mean_abs_shap": 0.01640334539115429,
+      "mean_shap": 0.00021316214406397194,
+      "type": "positive"
+    },
+    {
+      "name": "X4EBP1.T70",
+      "mean_abs_shap": 0.015838412567973137,
+      "mean_shap": 0.0013625171268358827,
+      "type": "positive"
+    }
+  ],
+  "top_negative_biomarkers": [
+    {
+      "name": "MCM6",
+      "mean_abs_shap": 0.2657698690891266,
+      "mean_shap": -0.10228122025728226,
+      "type": "negative"
+    },
+    {
+      "name": "CDCA5",
+      "mean_abs_shap": 0.09346554428339005,
+      "mean_shap": -0.055013734847307205,
+      "type": "negative"
+    },
+    {
+      "name": "WDR83",
+      "mean_abs_shap": 0.14159691333770752,
+      "mean_shap": -0.05226372182369232,
+      "type": "negative"
+    },
+    {
+      "name": "gcn_19",
+      "mean_abs_shap": 0.039297208189964294,
+      "mean_shap": -0.039297208189964294,
+      "type": "negative"
+    },
+    {
+      "name": "gcn_194",
+      "mean_abs_shap": 0.03730608522891998,
+      "mean_shap": -0.03730608522891998,
+      "type": "negative"
+    },
+    {
+      "name": "gcn_28",
+      "mean_abs_shap": 0.03326926752924919,
+      "mean_shap": -0.03326926752924919,
+      "type": "negative"
+    },
+    {
+      "name": "NPY1R",
+      "mean_abs_shap": 0.08072051405906677,
+      "mean_shap": -0.033114656805992126,
+      "type": "negative"
+    },
+    {
+      "name": "KRT86",
+      "mean_abs_shap": 0.15235817432403564,
+      "mean_shap": -0.03164958581328392,
+      "type": "negative"
+    },
+    {
+      "name": "CREBBP",
+      "mean_abs_shap": 0.11939341574907303,
+      "mean_shap": -0.030108274891972542,
+      "type": "negative"
+    },
+    {
+      "name": "Cyclin.D1.total",
+      "mean_abs_shap": 0.18157629668712616,
+      "mean_shap": -0.0289478600025177,
+      "type": "negative"
+    }
+  ],
+  "total_features_explained": 431
+}

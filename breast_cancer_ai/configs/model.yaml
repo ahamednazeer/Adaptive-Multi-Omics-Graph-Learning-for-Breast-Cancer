@@ -1,0 +1,64 @@
+# Model Configuration
+gcn:
+  hidden_dim: 256
+  num_layers: 2
+  dropout: 0.3
+  activation: relu
+
+gat:
+  hidden_dim: 256
+  num_heads: 4
+  dropout: 0.3
+  attention_dropout: 0.1
+  activation: elu
+
+fusion:
+  molecular_dim: 256     # output dim from GCN/GAT
+  clinical_dim: 64
+  treatment_dim: 32
+  fusion_dim: 128
+  dropout: 0.3
+  attention: true        # adaptive attention-based fusion
+
+predictor:
+  hidden_layers: [256, 128, 64]
+  dropout: 0.3
+  output_activation: sigmoid
+
+baseline:
+  logistic_regression:
+    C: 1.0
+    max_iter: 1000
+    solver: lbfgs
+    class_weight: balanced
+  xgboost:
+    n_estimators: 200
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    scale_pos_weight: auto
+    eval_metric: auc
+
+training:
+  epochs: 100
+  lr: 0.001
+  batch_size: 32
+  early_stopping_patience: 15
+  lr_scheduler: cosine
+  weight_decay: 0.0001
+  device: auto    # auto, cpu, cuda, mps
+
+feature_selection:
+  lasso:
+    cv_folds: 5
+    alpha_range: [0.001, 0.01, 0.1, 1.0]
+    max_features: 500
+  boruta:
+    n_estimators: 200
+    max_iter: 100
+    alpha: 0.05
+
+string_db:
+  confidence_threshold: 400   # STRING confidence score cutoff (0-1000)
+  network_type: combined       # options: combined, physical, functional

@@ -1,0 +1,5 @@
+{
+  "gcn_embedding_dim": 256,
+  "gat_embedding_dim": 256,
+  "n_patients_embedded": 736
+}

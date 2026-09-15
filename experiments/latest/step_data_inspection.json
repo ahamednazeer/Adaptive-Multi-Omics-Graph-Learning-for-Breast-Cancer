@@ -1,0 +1,28 @@
+{
+  "ispy2_shape": [
+    736,
+    19278
+  ],
+  "ispy2_rna_features": 19134,
+  "ispy2_protein_features": 139,
+  "ispy2_n_patients": 736,
+  "ispy2_pcr_positive": 256,
+  "ispy2_pcr_negative": 480,
+  "ispy2_pcr_rate": 0.3478,
+  "gse122630_shape": [
+    95,
+    19508
+  ],
+  "gse122630_n_patients": 34,
+  "gse240671_shape": [
+    122,
+    58259
+  ],
+  "gse240671_pre_samples": 95,
+  "gse240671_post_samples": 27,
+  "validation_warnings": [
+    "335 extreme outlier values detected (|z| > 5).",
+    "48 columns have >30% missing values: ['ALK.total', 'Androgen.Rec.S650', 'Androgen.Rec.total', 'B.catenin.S33.S37.T41', 'BRCA1.S1524']...",
+    "307 extreme outlier values detected (|z| > 5)."
+  ]
+}

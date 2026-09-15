@@ -1,0 +1,45 @@
+# =============================================================================
+# Breast Cancer AI — Backend Dockerfile (FastAPI + PyTorch CPU + Multi-Omics ML)
+# =============================================================================
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app \
+    PORT=8000
+
+# Install system dependencies (OpenMP for XGBoost/Scipy, curl for healthchecks)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgomp1 \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install PyTorch CPU wheels (keeps container lightweight ~1.2GB vs 7GB+ for CUDA)
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu && \
+    pip install --no-cache-dir torch-geometric
+
+# Install Python requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy backend application code
+COPY breast_cancer_ai /app/breast_cancer_ai
+RUN cp -r /app/breast_cancer_ai/configs /app/configs
+
+# Create directories and files for persistent volumes
+RUN mkdir -p /app/experiments && touch /app/breast_cancer_ai.db
+
+# Expose API port
+EXPOSE 8000
+
+# Container healthcheck against FastAPI /health endpoint
+HEALTHCHECK --interval=10s --timeout=5s --start-period=15s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Launch production ASGI server
+CMD ["uvicorn", "breast_cancer_ai.dashboard.main:app", "--host", "0.0.0.0", "--port", "8000"]

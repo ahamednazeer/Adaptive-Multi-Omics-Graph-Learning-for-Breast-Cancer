@@ -1,0 +1,99 @@
+# Data Configuration — based on real dataset audit
+datasets:
+  ispy2:
+    path: "ISPY2_merged_multomics_736.csv"
+    description: "ISPY2 multi-omics (736 patients) — RNA + RPPA protein + clinical + treatment"
+    patient_id_col: "patient_id"
+    target_col: "pcr"
+    rna_prefix: "RNA__"          # 19,134 genes, already log-normalized
+    protein_prefix: "PROT__"     # 139 RPPA features, z-scored, ~20% missing
+    clinical_cols:
+      - "her2"
+      - "hr"
+    treatment_col: "arm"         # will be one-hot encoded
+    treatment_short_col: "arm (short name)"
+
+  gse122630:
+    path: "GSE122630_COMPLETE_95_longitudinal_RNA.csv"
+    description: "GSE122630 longitudinal RNA (95 samples, 34 patients, T1-T4)"
+    patient_id_col: "Patient_ID"
+    sample_id_col: "Sample_ID"
+    timepoint_col: "Timepoint"
+    timepoint_order_col: "Timepoint_Order"
+    timepoint_desc_col: "Timepoint_Description"
+    gene_id_format: "ensembl"    # ENSG00000... format — needs ENSG→symbol mapping
+    timepoints: ["T1", "T2", "T3", "T4"]
+    timepoint_descriptions:
+      T1: "Pre-treatment"
+      T2: "Early on-treatment (~2 weeks)"
+      T3: "Mid-treatment (~6 weeks)"
+      T4: "Surgical resection"
+
+  gse240671:
+    path: "GSE240671_COMPLETE_122_annotated_pre_post_RNA.csv"
+    description: "GSE240671 pre/post RNA (122 samples, 61 patients matched)"
+    patient_id_col: "Patient_ID"
+    patient_number_col: "Patient_Number"
+    gsm_id_col: "GSM_ID"
+    timing_col: "Timing"
+    timing_values:
+      pre: "Pre-treatment"
+      post: "Post-treatment residual"
+    target_col: "pCR_Binary"     # 0/1 binary
+    target_str_col: "pCR_Status" # "pCR" / "No-pCR"
+    rcb_col: "RCB_Category"
+    clinical_cols:
+      - "Molecular_Category"
+      - "NAC_Category"
+      - "NAC_Herceptin"
+      - "Age_Diagnostic"
+      - "Menopausal_Status"
+      - "Grade"
+      - "Node_Invasion"
+    batch_col: "Sequencing_Batch"
+    gene_id_format: "symbol"     # gene symbol format (WASH7P, etc.)
+    meta_cols:
+      - "GSM_ID"
+      - "Patient_Number"
+      - "Patient_ID"
+      - "Library_ID"
+      - "Timing"
+      - "RCB_Category"
+      - "pCR_Status"
+      - "pCR_Binary"
+      - "Molecular_Category"
+      - "NAC_Category"
+      - "NAC_Herceptin"
+      - "Age_Diagnostic"
+      - "Menopausal_Status"
+      - "Grade"
+      - "Node_Invasion"
+      - "Sequencing_Batch"
+
+splitting:
+  test_size: 0.20
+  val_size: 0.10
+  random_seed: 42
+  stratify_col: "pcr"
+  patient_level: true
+
+preprocessing:
+  rna:
+    # RNA already log-normalized in ISPY2 — just zscore across patients
+    normalization: zscore
+    imputation: median          # 0% missing but defensive
+    variance_threshold: 0.01
+    min_mean_expression: null   # already normalized, skip expression filter
+  protein:
+    normalization: zscore        # already z-scored but re-normalize per split
+    imputation: knn              # ~20% missing — KNN is better than median
+    n_neighbors: 5
+    quality_filter: true
+    cv_threshold: 0.05
+  clinical:
+    her2: binary                 # already 0/1
+    hr: binary                   # already 0/1
+  treatment:
+    encoding: onehot             # one-hot encode treatment arms
+
+missing_value_threshold: 0.30    # drop features missing >30% across patients

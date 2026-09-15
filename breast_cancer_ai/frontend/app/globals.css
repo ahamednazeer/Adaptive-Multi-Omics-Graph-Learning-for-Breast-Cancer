@@ -1,0 +1,196 @@
+/* ── Fonts ───────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Chivo:wght@700;900&display=swap');
+
+@import "tailwindcss";
+
+/* ── Base ────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { height: 100%; }
+
+  body {
+    background-color: #020617;  /* slate-950 */
+    color: #f1f5f9;             /* slate-100 */
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :root {
+    --bg-base:     #020617;
+    --bg-sidebar:  #0f172a;
+    --bg-card:     rgba(30,41,59,0.4);
+    --border:      rgba(51,65,85,0.6);
+    --accent:      #3b82f6;
+    --accent-dim:  rgba(59,130,246,0.15);
+    --text-primary: #f1f5f9;
+    --text-muted:   #94a3b8;
+    --text-faint:   #64748b;
+  }
+
+  ::selection { background: #1d4ed8; color: #fff; }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #334155; }
+}
+
+/* ── Utilities ───────────────────────────────────────────── */
+@layer utilities {
+  .font-chivo  { font-family: 'Chivo', 'Arial Black', sans-serif; }
+  .font-mono   { font-family: 'JetBrains Mono', 'Consolas', monospace; }
+
+  /* Scanlines CRT overlay */
+  .scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.05) 2px,
+      rgba(0,0,0,0.05) 4px
+    );
+  }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    background-color: #2563eb;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+    border: 1px solid #3b82f6;
+    transition: background-color 0.15s, border-color 0.15s;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background-color: #1d4ed8; border-color: #60a5fa; }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: #94a3b8;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+    border: 1px solid #334155;
+    transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+    cursor: pointer;
+  }
+  .btn-secondary:hover { color: #e2e8f0; border-color: #475569; background-color: rgba(51,65,85,0.4); }
+  .btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .btn-success {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    background-color: #15803d;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+    border: 1px solid #16a34a;
+    transition: background-color 0.15s;
+    cursor: pointer;
+  }
+  .btn-success:hover { background-color: #166534; }
+
+  .btn-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    background-color: #b91c1c;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+    border: 1px solid #dc2626;
+    transition: background-color 0.15s;
+    cursor: pointer;
+  }
+  .btn-danger:hover { background-color: #991b1b; }
+
+  /* Input */
+  .input-modern {
+    background-color: rgba(15,23,42,0.8);
+    color: #e2e8f0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #334155;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+  .input-modern:focus { border-color: #3b82f6; }
+  .input-modern::placeholder { color: #475569; }
+
+  /* Select */
+  select.input-modern {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%2364748b'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 2rem;
+  }
+
+  /* Cards */
+  .card {
+    background-color: rgba(30,41,59,0.4);
+    border: 1px solid rgba(51,65,85,0.6);
+    border-radius: 2px;
+    padding: 1.5rem;
+  }
+
+  /* Status classes */
+  .status-online  { color: #4ade80; }
+  .status-offline { color: #f87171; }
+  .status-warning { color: #fbbf24; }
+  .status-running { color: #60a5fa; }
+  .status-idle    { color: #94a3b8; }
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.animate-scale-in { animation: scale-in 0.15s ease-out; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.animate-pulse { animation: pulse 1.5s ease-in-out infinite; }
+
+@media print {
+  .scanlines { display: none; }
+  body { background: white; color: black; }
+}
